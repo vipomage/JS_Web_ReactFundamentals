@@ -1,0 +1,178 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+header,
+h1 {
+	text-align: center;
+}
+#book {
+	margin: 20px;
+	overflow: auto;
+	clear: both;
+	background: #ffffff;
+}
+
+#list {
+	float: left;
+	width: 40%;
+}
+
+#details {
+	float: left;
+	width: 60%;
+}
+
+.contact {
+	background: #eee;
+	padding: 5px;
+	margin: 5px;
+	vertical-align: middle;
+	cursor: pointer;
+}
+
+.contact:hover {
+	background: #d59450;
+}
+
+.avatar {
+	display: inline-block;
+	width: 96px;
+	height: 96px;
+	font-size: 5em;
+	line-height: 96px;
+	vertical-align: middle;
+	text-align: center;
+	background: #838383;
+	color: #ffffff;
+	border-radius: 5px;
+}
+
+.small {
+	width: 48px;
+	height: 48px;
+	font-size: 2.5em;
+	line-height: 48px;
+}
+
+.title {
+	display: inline-block;
+	padding: 5px;
+	font-weight: bold;
+}
+
+.name {
+	font-size: 2em;
+	font-weight: bold;
+	margin: 5px 20px;
+}
+
+.info-line {
+	margin: 5px;
+}
+
+.info {
+	overflow: auto;
+	padding: 5px;
+}
+
+.info span {
+	display: block;
+}
+
+.col {
+	float: left;
+}
+
+#contact-details {
+	outline: 2px solid #d49351;
+	margin: 10px;
+}
+.info-line {
+	text-decoration: underline;
+	font-style: italic;
+	cursor: pointer;
+}
+.button {
+	padding: 25px;
+	border-radius: 3px;
+	font-weight: bold;
+	text-align: center;
+	margin: auto;
+	align-items: center;
+	justify-content: center;
+	display: flex;
+}
+.timer {
+	margin: 30px auto;
+	padding: 15px;
+	text-align: center;
+	/*
+    Why would you click on it tho ?
+     */
+	user-select: none;
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+	-o-user-select: none;
+}
+.timer::before {
+	content: 'Current Time is: ';
+	border-radius: 5px 5px 0 0;
+	padding: 15px;
+	background: #d49351;
+	font-size: 1.2rem;
+}
+
+.blinker {
+	animation: blinker 1s linear infinite;
+}
+.blinker::after {
+	content: '';
+}
+
+@keyframes blinker {
+	50% {
+		opacity: 0;
+	}
+}
+
+button {
+	background: #d49351;
+	color: #fff;
+	border: none;
+	position: relative;
+	height: 60px;
+	font-size: 1.6em;
+	padding: 0 2em;
+	cursor: pointer;
+	transition: 800ms ease all;
+	outline: none;
+}
+button:hover {
+	background: #fff;
+	color: black;
+}
+button:before,
+button:after {
+	content: '';
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 2px;
+	width: 0;
+	background: #d49351;
+	transition: 400ms ease all;
+}
+button:after {
+	right: inherit;
+	top: inherit;
+	left: 0;
+	bottom: 0;
+}
+button:hover:before,
+button:hover:after {
+	width: 100%;
+	transition: 900ms ease all;
+}
