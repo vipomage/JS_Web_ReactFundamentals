@@ -1,0 +1,105 @@
+html {
+	touch-action: manipulation;
+}
+
+body {
+	background-color: white;
+	color: black;
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+p {
+	line-height: 1.5;
+}
+
+h1 {
+	text-align: center;
+}
+
+.container {
+	text-align: center;
+	width: 800px;
+	padding: 20px;
+	margin: auto;
+}
+
+.container section {
+	margin: 10px 0;
+	position: relative;
+	padding: 10px;
+	background: white;
+	border-radius: 10px;
+	height: 240px;
+	display: flex;
+}
+
+#slider > .image-container {
+	margin: 0 auto;
+	flex-grow: 10;
+	height: 230px;
+	text-align: center;
+}
+
+img {
+	height: 100%;
+}
+
+.roster-image-container {
+	flex-grow: 1;
+	text-align: center;
+	padding: 1px;
+}
+
+.button {
+	flex-grow: 1;
+}
+
+.button:hover {
+	cursor: pointer;
+}
+
+#bio .image {
+	flex-grow: 1;
+}
+
+#bio .info {
+	flex-grow: 2;
+	padding: 10px 30px;
+}
+#bio .info p:last-child {
+	text-indent: 20px;
+}
+.characters {
+	margin: 0 auto;
+	display: flex;
+}
+div.characters .character {
+	margin: 2px;
+	border: 1px orange solid;
+	width: 250px;
+	height: 260px;
+}
+
+#root > div > div.details-container {
+	margin: 15px;
+	border: 3px solid orange;
+}
+#root > div > div.details-container > img {
+	max-width: 260px;
+	max-height: 260px;
+}
+#\30,
+#\31,
+#\32,
+#\33,
+#root > div > div.warper > img.slider-elem.slider-button.case-left,
+#root > div > div.warper > img.slider-elem.slider-button.case-right:hover {
+	cursor: pointer;
+}
+.zoom {
+    transition: transform .1s; /* Animation */
+    }
+
+.zoom:hover {
+    transform: scale(1.2); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+    z-index: 99;
+    }
