@@ -9,14 +9,14 @@ import PokemonField from './components/form/formFields/PokemonField';
 class App extends Component {
 	constructor() {
 		super();
-		
+
 		this.state = {
 			username: localStorage.getItem('user'),
 			token: localStorage.getItem('token'),
 			pokedex: []
 		};
 	}
-	updatePokedex  = data =>{
+	updatePokedex = data => {
 		let collection = this.state.pokedex;
 		collection.push(data);
 		this.setState(collection);
@@ -32,7 +32,9 @@ class App extends Component {
 		});
 	}
 	componentDidUpdate(prevProps, prevState, snap) {
-		if (JSON.stringify(prevState.pokedex) !== JSON.stringify(this.state.pokedex)) {
+		if (
+			JSON.stringify(prevState.pokedex) !== JSON.stringify(this.state.pokedex)
+		) {
 			fetch('http://localhost:5000/pokedex/pokedex').then(response => {
 				response.json().then(parseData => {
 					this.setState({ pokedex: parseData.pokemonColection });
@@ -42,7 +44,7 @@ class App extends Component {
 	}
 	render() {
 		let pokemons = this.state.pokedex.map(pokemon => (
-			<PokemonField  key={pokemon.id} data={pokemon} />
+			<PokemonField key={pokemon.id} data={pokemon} />
 		));
 		if (!this.state.token && !this.state.username) {
 			return (
@@ -54,9 +56,15 @@ class App extends Component {
 		} else {
 			return (
 				<div className="container md-3 ">
-					<h1>Logged in as {localStorage.getItem('user')}</h1>
-					<PokemonForm token={this.state.token} update={this.updatePokedex}/>
-					<div className={'container row'}>{pokemons}</div>
+					<h1 className="text-center">
+						Logged in as{' '}
+						<em className={'text-uppercase'}>{localStorage.getItem('user')}</em>
+					</h1>
+					<PokemonForm token={this.state.token} update={this.updatePokedex} />
+					<h1 className="text text-center">Pokemon Collection</h1>
+					<div className={'container row border-2 border-warning'}>
+						{pokemons}
+					</div>
 				</div>
 			);
 		}

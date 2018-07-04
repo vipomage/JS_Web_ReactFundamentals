@@ -39,10 +39,8 @@ class SingUpForm extends Component {
 				return res.json();
 			})
 			.then(d => {
-				//todo fix incorrect register
-				this.setState({ message: d.message });
+				this.setState({ message: d.message, err: true });
 				if (d.success) {
-					console.log(d.message);
 					this.setState({ err: false });
 				}
 			});
@@ -56,6 +54,10 @@ class SingUpForm extends Component {
 			this.state.password,
 			this.state.confirmPassword
 		);
+
+		let infoClass = this.state.err
+			? 'alert alert-danger'
+			: 'alert alert-success';
 
 		return (
 			<form className="signup-form" onSubmit={this.submitRegister.bind(this)}>
@@ -101,11 +103,11 @@ class SingUpForm extends Component {
 							}}
 							valid={validObj.validPassword}
 						/>
-						<span>Password must be at least 8 chars long</span>
+						<span style={validObj.validPassword? {display:'none'}:{display:'block',color:'red'}}>Password must be at least 8 chars long</span>
 						<Input
 							type="password"
 							data="confirmPassword"
-							name="Confirm Passwor"
+							name="Confirm Password"
 							func={e => {
 								this.setState({ confirmPassword: e.target.value });
 							}}
@@ -123,14 +125,15 @@ class SingUpForm extends Component {
 							/>
 							<label htmlFor="checkBox">I agree with the terms</label>
 						</div>
-
+						<div className={infoClass}>{this.state.message}</div>
 						<input
 							className={'btn btn-primary'}
 							style={{
 								display:
 									(validObj.validMail &&
 										validObj.validName &&
-										validObj.validPassword) === true
+										validObj.validPassword &&
+										this.state.agreeWithTerms) === true
 										? ''
 										: 'none'
 							}}

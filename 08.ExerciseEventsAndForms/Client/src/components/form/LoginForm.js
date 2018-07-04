@@ -77,7 +77,7 @@ export default class LoginForm extends Component {
 								this.setState({ password: e.target.value });
 							}}
 						/>
-						<input type="submit" value="Login to my Account" />
+						<input className="btn btn-primary mt-3" type="submit" value="Login to my Account" />
 					</div>
 				</fieldset>
 			</form>

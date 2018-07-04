@@ -7,7 +7,9 @@ let Valid = prop => {
 			aria-label="valid"
 			style={{
 				display: prop.display ? 'none' : '',
-				marginLeft: '-23px'
+				marginLeft: '-30px',
+				borderLeft: '1px solid',
+				paddingLeft:'3px'
 			}}
 		>
 			❌
