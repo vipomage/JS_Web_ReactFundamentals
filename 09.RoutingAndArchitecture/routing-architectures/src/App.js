@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 import Navigation from './components/Navigation';
 import Footer from './components/Footer';
 import './App.css';
@@ -9,9 +10,9 @@ class App extends Component {
 		return (
 			<div>
 				<Navigation>
-					<a href="/home">Home</a>
-					<a href="/add">Add</a>
-					<a href="/all">All</a>
+					<Link to='/home'>Home</Link>
+					<Link to='/add'>Add Cat Food</Link>
+					<Link to='/all'>All</Link>
 				</Navigation>
 				<AppRouter />
 				<Footer />
